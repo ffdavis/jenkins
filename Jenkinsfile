@@ -9,7 +9,7 @@ pipeline {
     stage('Stage 2: Checkout Git') {
       steps {
         echo 'Checking out Git'
-        sh 'checkout([$class: \'GitSCM\', branches: [[name: \'*/master\']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: \'https://github.com/samsonawane/SampleProject.git\']]])'
+        git(url: 'https://github.com/ffdavis/jenkins.git', branch: '*/master', changelog: true, poll: true)
       }
     }
   }
